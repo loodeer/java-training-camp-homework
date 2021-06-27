@@ -16,6 +16,9 @@ public class HelloXlassLoader extends ClassLoader {
             IllegalAccessException {
 
         HelloXlassLoader helloXlassLoader = new HelloXlassLoader();
+
+        //        System.out.println(helloXlassLoader.readFile());
+
         Class<?> targetClass = helloXlassLoader.loadClass("Hello");
         Method targetMethod = targetClass.getDeclaredMethod("hello");
         targetMethod.invoke(targetClass.getDeclaredConstructor().newInstance());
@@ -42,6 +45,21 @@ public class HelloXlassLoader extends ClassLoader {
             out[i] = (byte) (255 - in[i]);
         }
         return out;
+    }
+
+    public String readFile() {
+        StringBuilder result = new StringBuilder();
+        try (InputStream in = this.getClass().getResourceAsStream("/Hello.xlass")) {
+            if (in != null) {
+                int tmp;
+                while ((tmp = in.read()) != -1) {
+                    result.append((char) (255 - tmp));
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return result.toString();
     }
 
 }
