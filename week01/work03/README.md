@@ -8,7 +8,7 @@
 
 **Xms**: 指定堆内存空间的初始大小。
 
-**Xmn**: 新生代堆内存大小，等价于 -XX:NewSize，官方建议为 -Xmx 的 1/2 ~ 1/4。
+**Xmn**: 新生代堆内存大小，等价于 -XX:NewSize && -XX:MaxNewSize，官方建议为 -Xmx 的 1/2 ~ 1/4。
 
 **MetaSpace**: 元数据空间，大小受限于 Java 进程可用的本地内存。
 
