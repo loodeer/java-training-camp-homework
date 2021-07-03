@@ -12,3 +12,4 @@ out### Example user template template
 *.iml
 out
 gen
+*/.java-version
