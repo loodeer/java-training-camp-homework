@@ -1,3 +1,7 @@
+> **1.**使用 GCLogAnalysis.java 自己演练一遍串行 / 并行 /CMS/G1 的案例。
+
+
+
 -XX:+UseSerialGC 
 -XX:+UseParallelGC 
 -XX:+UseConcMarkSweepGC 
