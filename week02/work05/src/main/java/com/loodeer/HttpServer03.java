@@ -1,4 +1,4 @@
-package com.loodeer.netty.com.loodeer;
+package com.loodeer;
 
 import java.io.IOException;
 import java.io.PrintWriter;

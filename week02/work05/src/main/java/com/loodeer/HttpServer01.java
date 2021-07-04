@@ -1,4 +1,4 @@
-package com.loodeer.netty.com.loodeer;
+package com.loodeer;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -7,21 +7,15 @@ import java.net.Socket;
 
 /**
  * @author luzuheng
- * 每个请求一个线程
- * @since 2021-07-04 18:24
+ * 单线程的socket程序
+ * @since 2021-07-04 18:18
  */
-public class HttpServer02 {
+public class HttpServer01 {
     public static void main(String[] args) throws IOException {
-        ServerSocket serverSocket = new ServerSocket(8802);
+        ServerSocket serverSocket = new ServerSocket(8801);
         while (true) {
-            try {
-                final Socket socket = serverSocket.accept();
-                new Thread(() -> {
-                    service(socket);
-                }).start();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            Socket socket = serverSocket.accept();
+            service(socket);
         }
     }
 
@@ -30,13 +24,13 @@ public class HttpServer02 {
             PrintWriter printWriter = new PrintWriter(socket.getOutputStream(), true);
             printWriter.println("HTTP/1.1 200 OK");
             printWriter.println("Content-Type:text/html;charset=utf-8");
-            String body = "hello,nio2";
+            String body = "hello,nio1";
             printWriter.println("Content-Length:" + body.getBytes().length);
             printWriter.println();
             printWriter.write(body);
             printWriter.close();
             socket.close();
-        } catch (Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

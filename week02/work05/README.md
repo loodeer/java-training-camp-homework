@@ -4,7 +4,7 @@
 
 ### 单线程 socket 服务
 
-运行 com.loodeer.netty.com.loodeer.HttpServer01。
+运行 com.loodeer.HttpServer01。
 
 ```bash
 ➜  work05 git:(main) ✗ wrk -c 40 -d30s http://localhost:8801
@@ -21,7 +21,7 @@ Transfer/sec:    333.14KB
 
 ### 每个请求一个线程
 
-运行 com.loodeer.netty.com.loodeer.HttpServer02。
+运行 com.loodeer.HttpServer02。
 
 ```bash
 ➜  work05 git:(main) ✗ curl http://localhost:8802
@@ -40,7 +40,7 @@ Transfer/sec:    208.06KB
 
 ### 创建了一个固定大小的线程池处理请求
 
-运行 com.loodeer.netty.com.loodeer.HttpServer03。
+运行 com.loodeer.HttpServer03。
 
 ```bash
 ➜  work05 git:(main) ✗ curl http://localhost:8803
