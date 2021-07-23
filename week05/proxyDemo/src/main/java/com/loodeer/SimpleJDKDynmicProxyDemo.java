@@ -39,6 +39,8 @@ public class SimpleJDKDynmicProxyDemo {
     }
 
     public static void main(String[] args) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
+//        System.setProperty("sun.misc.ProxyGenerator.saveGeneratedFiles", "true");
+
         IService realService = new RealService();
 
         IService proxyService = (IService) Proxy.newProxyInstance(

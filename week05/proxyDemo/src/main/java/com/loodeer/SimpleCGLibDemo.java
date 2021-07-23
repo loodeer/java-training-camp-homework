@@ -1,6 +1,7 @@
 package com.loodeer;
 
 import java.lang.reflect.Method;
+import net.sf.cglib.core.DebuggingClassWriter;
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;
@@ -34,7 +35,8 @@ public class SimpleCGLibDemo {
     }
 
     public static void main(String[] args) {
+//        System.setProperty(DebuggingClassWriter.DEBUG_LOCATION_PROPERTY, "/tmp/");
         RealService proxy = getProxy(RealService.class);
         proxy.sayHello();
-    }
+        }
 }
